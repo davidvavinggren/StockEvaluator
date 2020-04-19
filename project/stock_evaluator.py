@@ -8,6 +8,14 @@ import yfinance as yf
 
 API_SERVER = "https://financialmodelingprep.com/api/v3/"
 
+#https://financialmodelingprep.com/api/v3/financials/income-statement/AAPL
+#https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/AAPL
+#https://financialmodelingprep.com/api/v3/financial-ratios/AAPL
+#https://financialmodelingprep.com/api/v3/company/profile/AAPL
+#https://financialmodelingprep.com/api/v3/quote/AAPL,FB
+#https://financialmodelingprep.com/api/v3/company-key-metrics/AAPL?period=quarter
+#https://financialmodelingprep.com/api/v3/company/rating/AAPL
+#https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?serietype=line
 
 def get_jsn_as_dict(stock_label):
     url = (API_SERVER
