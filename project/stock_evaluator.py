@@ -8,6 +8,8 @@ import yfinance as yf
 
 API_SERVER = "https://financialmodelingprep.com/api/v3/"
 
+#Dessa dictionaries tror jag kan bli användbara:
+
 #https://financialmodelingprep.com/api/v3/financials/income-statement/AAPL
 #https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/AAPL
 #https://financialmodelingprep.com/api/v3/financial-ratios/AAPL
