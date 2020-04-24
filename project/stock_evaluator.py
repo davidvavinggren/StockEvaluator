@@ -60,12 +60,12 @@ def get_dicts(category, label):
 
 def Main(label):
     f_dicts = {"price" : get_dicts("price", label),
-               "income" : get_data("income", label),
-               "assets" : get_data("assets", label),
-               "financial_ratios" : get_data("financial_ratios", label),
-               "info" : get_data("info", label),
-               "key_metrics" : get_data("key_metrics", label),
-               "rating" : get_data("rating", label)}
+               "income" : get_dicts("income", label),
+               "assets" : get_dicts("assets", label),
+               "financial_ratios" : get_dicts("financial_ratios", label),
+               "info" : get_dicts("info", label),
+               "key_metrics" : get_dicts("key_metrics", label),
+               "rating" : get_dicts("rating", label)}
     f_data = {"currency" : "USD",
               "company_name" : f_dicts["info"]["profile"]["companyName"],
               "annual_price" : get_annual_price(f_dicts["price"]),
