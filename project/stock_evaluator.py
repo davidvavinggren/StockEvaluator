@@ -40,7 +40,7 @@ def plot_graph(list, company_name, plot_name = 0, plot_title = 0,
     plt.savefig(plot_name)
 
 
-def get_dicts(category, label):
+def get_dicts(category, label = ""):
     API_SERVER = "https://financialmodelingprep.com/api/v3/"
     url_dict = {"income" : "financials/income-statement/{}".format(label),
                 "assets" : "financials/balance-sheet-statement/{}".format(label),
@@ -48,7 +48,8 @@ def get_dicts(category, label):
                 "info" : "company/profile/{}".format(label),
                 "key_metrics" : "company-key-metrics/{}?period=quarter".format(label),
                 "rating" : "company/rating/{}".format(label),
-                "price" : "historical-price-full/{}?serietype=line".format(label)}
+                "price" : "historical-price-full/{}?serietype=line".format(label),
+                "companies" : "company/stock/list"}
     url = API_SERVER + url_dict[category]
 
     if get_jsn_as_dict(url):
@@ -65,7 +66,8 @@ def Main(label):
                "financial_ratios" : get_dicts("financial_ratios", label),
                "info" : get_dicts("info", label),
                "key_metrics" : get_dicts("key_metrics", label),
-               "rating" : get_dicts("rating", label)}
+               "rating" : get_dicts("rating", label),
+               "companies" : get_dicts("companies")}
     f_data = {"currency" : "USD",
               "company_name" : f_dicts["info"]["profile"]["companyName"],
               "annual_price" : get_annual_price(f_dicts["price"]),
