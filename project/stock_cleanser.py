@@ -1,4 +1,6 @@
 import requests
 import common
-import get_dicts from stock_evaluator
-import get_jsn_as_dict from stock_evaluator
+from stock_evaluator import get_dicts
+from stock_evaluator import get_jsn_as_dict
+
+company_dict = get_dicts("companies")
