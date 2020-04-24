@@ -40,7 +40,7 @@ def plot_graph(list, company_name, plot_name = 0, plot_title = 0,
     plt.savefig(plot_name)
 
 
-def get_data(category, label):
+def get_dicts(category, label):
     API_SERVER = "https://financialmodelingprep.com/api/v3/"
     url_dict = {"income" : "financials/income-statement/{}".format(label),
                 "assets" : "financials/balance-sheet-statement/{}".format(label),
@@ -59,7 +59,7 @@ def get_data(category, label):
 
 
 def Main(label):
-    f_dicts = {"price" : get_data("price", label),
+    f_dicts = {"price" : get_dicts("price", label),
                "income" : get_data("income", label),
                "assets" : get_data("assets", label),
                "financial_ratios" : get_data("financial_ratios", label),
