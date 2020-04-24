@@ -4,6 +4,7 @@ import common
 import matplotlib
 import matplotlib.pyplot as plt
 
+
 def get_jsn_as_dict(url):
     uerel = requests.get(url)
     uerel_json = uerel.json()
@@ -37,6 +38,7 @@ def plot_graph(list, company_name, plot_name = 0, plot_title = 0,
     plt.ylabel(y_label)
     plt.xlabel(x_label)
     plt.savefig(plot_name)
+
 
 def get_data(category, label):
     API_SERVER = "https://financialmodelingprep.com/api/v3/"
@@ -75,5 +77,6 @@ def Main(label):
                " annual stock price",
                "USD", "Time [year]",
                "Value [" + currency + "]")
+
 
 Main(sys.argv[1])
