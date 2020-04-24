@@ -14,14 +14,14 @@ def get_jsn_as_dict(url):
         print("ERROR")
 
 
-def get_period_annual(f_dict):
+def get_annual_price(f_dict):
     data = f_dict["historical"]
-    period_annual = []
+    annual_price = []
     for i in range(0, len(data), 253):
-        period_annual.append(data[i])
+        annual_price.append(data[i])
         if i == len(data) - len(data) % 365:
-            period_annual.append(data[len(data)-1])
-    return period_annual
+            annual_price.append(data[len(data)-1])
+    return annual_price
 
 
 def plot_graph(list, company_name, plot_name = 0, plot_title = 0,
@@ -66,17 +66,19 @@ def Main(label):
                "info" : get_data("info", label),
                "key_metrics" : get_data("key_metrics", label),
                "rating" : get_data("rating", label)}
-    f_data = {""}
-    currency = "USD"
-    company_name = f_dicts["info"]["profile"]["companyName"]
+    f_data = {"currency" : "USD",
+              "company_name" : f_dicts["info"]["profile"]["companyName"],
+              "annual_price" : get_annual_price(f_dicts["price"]),
+              "current_price" : f_dicts["info"]["profile"]["price"],
+              "description" : f_dicts["info"]["profile"]["description"],
+              "website" : f_dicts["info"]["profile"]["website"]}
     label = label.upper()
-    period_annual = get_period_annual(f_dicts["price"])
-    plot_graph(period_annual,
-               company_name,
+    plot_graph(f_data["annual_price"],
+               f_data["company_name"],
                "annual_stock_price.png",
                " annual stock price",
                "USD", "Time [year]",
-               "Value [" + currency + "]")
+               "Value [{}]".format(f_data["currency"]))
 
 
 Main(sys.argv[1])
