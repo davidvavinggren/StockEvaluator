@@ -82,5 +82,5 @@ def Main(label):
                "USD", "Time [year]",
                "Value [{}]".format(f_data["currency"]))
 
-
-Main(sys.argv[1])
+if __name__ == "__main__":
+    Main(sys.argv[1])
